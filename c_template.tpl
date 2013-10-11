@@ -3,12 +3,21 @@
         (
     {/if}
         {if isset( $_block->block[0]) && $_block->block[0] != null}
-            {call executeCondition _block = $_block->block[0]}
+            {if $byobBlock->isFunction($_block->block[0]->s)}
+                {executeFunctionStatement _block = $_block->block[0]}
+            {else}
+                {call executeCondition _block = $_block->block[0]}
+            {/if}
         {/if}
         
         {$byobBlock->getAlternateValue($_block->s)}
-        {if isset($_block->block[1]) && $_block->block[1] != null}
-            {call executeCondition _block = $_block->block[1]}
+        
+        {if isset( $_block->block[1]) && $_block->block[1] != null}
+            {if $byobBlock->isFunction($_block->block[1]->s)}
+                {executeFunctionStatement _block = $_block->block[1]}
+            {else}
+                {call executeCondition _block = $_block->block[1]}
+            {/if}
         {/if}
     {if $byobBlock->isOperator($_block->s)}
         )
@@ -57,6 +66,10 @@
     }
 {/function}
 
+{function executeFunctionStatement _block = null}
+    {$byobBlock->getAlternateValue($_block->s)}({executeFunctionParam _block = $_block})
+{/function}
+
 {function executeStatement _block = null}
     {if $_block->s == 'doIf'}
         {executeIfStatement _block = $_block}
@@ -65,7 +78,7 @@
     {elseif $_block->s == 'doRepeat'}
         {executeRepeatStatement _block = $_block}
     {else}
-        {$_block->s}({executeFunctionParam _block = $_block});
+        {executeFunctionStatement _block = $_block};
     {/if}
 {/function}
 

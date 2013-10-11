@@ -30,7 +30,15 @@ class ByobBlock {
     
     public function isOperator($value) {
         return $value == "reportAnd" ||
+                $value == "reportLessThan" ||
                 $value == "reportOr";
+    }
+    
+    public function isFunction($name){
+        if($name == "reportRound"){
+            return true;
+        }
+        return false;
     }
     
     
