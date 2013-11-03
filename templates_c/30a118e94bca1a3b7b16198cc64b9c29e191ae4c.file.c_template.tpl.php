@@ -1,24 +1,24 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2013-10-09 17:10:33
+<?php /* Smarty version Smarty-3.1.14, created on 2013-11-03 17:40:40
          compiled from "c_template.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:28105524985a132ba50-83859410%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:276985258485b69e4b1-40284974%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '30a118e94bca1a3b7b16198cc64b9c29e191ae4c' => 
     array (
       0 => 'c_template.tpl',
-      1 => 1381331430,
+      1 => 1383496837,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '28105524985a132ba50-83859410',
+  'nocache_hash' => '276985258485b69e4b1-40284974',
   'function' => 
   array (
-    'executeStatement' => 
+    'executeListStatement' => 
     array (
       'parameter' => 
       array (
-        '_block' => NULL,
+        '_list' => NULL,
       ),
       'compiled' => '',
     ),
@@ -62,36 +62,42 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       ),
       'compiled' => '',
     ),
-    'executeStatementOfList' => 
+    'executeFunctionStatement' => 
     array (
       'parameter' => 
       array (
-        '_blocks' => NULL,
+        '_block' => NULL,
       ),
       'compiled' => '',
     ),
-    'executeListStatement' => 
+    'executeStatement' => 
     array (
       'parameter' => 
       array (
-        '_list' => NULL,
+        '_block' => NULL,
       ),
       'compiled' => '',
     ),
   ),
   'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_524985a1565fd5_33582599',
+  'unifunc' => 'content_5258485b79c372_92834743',
   'variables' => 
   array (
     '_block' => 0,
     'byobBlock' => 0,
+    'block_arr' => 0,
+    'keys' => 0,
+    'is_left_part_terminal' => 0,
+    'left_block' => 0,
+    'is_right_part_terminal' => 0,
+    'right_block' => 0,
     '_count' => 0,
     '_param' => 0,
     '_list' => 0,
   ),
   'has_nocache_code' => 0,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_524985a1565fd5_33582599')) {function content_524985a1565fd5_33582599($_smarty_tpl) {?><?php if (!function_exists('smarty_template_function_executeCondition')) {
+<?php if ($_valid && !is_callable('content_5258485b79c372_92834743')) {function content_5258485b79c372_92834743($_smarty_tpl) {?><?php if (!function_exists('smarty_template_function_executeCondition')) {
     function smarty_template_function_executeCondition($_smarty_tpl,$params) {
     $saved_tpl_vars = $_smarty_tpl->tpl_vars;
     foreach ($_smarty_tpl->smarty->template_functions['executeCondition']['parameter'] as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);};
@@ -99,16 +105,59 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <?php if ($_smarty_tpl->tpl_vars['byobBlock']->value->isOperator($_smarty_tpl->tpl_vars['_block']->value->s)){?>
         (
     <?php }?>
-        <?php if (isset($_smarty_tpl->tpl_vars['_block']->value->block[0])&&$_smarty_tpl->tpl_vars['_block']->value->block[0]!=null){?>
-            <?php smarty_template_function_executeCondition($_smarty_tpl,array('_block'=>$_smarty_tpl->tpl_vars['_block']->value->block[0]));?>
+        <?php if (!isset($_smarty_tpl->tpl_vars['_block']->value->block)){?>
+            <?php echo $_smarty_tpl->tpl_vars['byobBlock']->value->getAlternateValue($_smarty_tpl->tpl_vars['_block']->value->s);?>
 
-        <?php }?>
-        
-        <?php echo $_smarty_tpl->tpl_vars['byobBlock']->value->getAlternateValue($_smarty_tpl->tpl_vars['_block']->value->s);?>
+        <?php }else{ ?>
+            
+            <?php $_smarty_tpl->tpl_vars['block_arr'] = new Smarty_variable(get_object_vars($_smarty_tpl->tpl_vars['_block']->value), null, 0);?>
+            <?php $_smarty_tpl->tpl_vars['keys'] = new Smarty_variable(array_keys($_smarty_tpl->tpl_vars['block_arr']->value), null, 0);?>
 
-        <?php if (isset($_smarty_tpl->tpl_vars['_block']->value->block[1])&&$_smarty_tpl->tpl_vars['_block']->value->block[1]!=null){?>
-            <?php smarty_template_function_executeCondition($_smarty_tpl,array('_block'=>$_smarty_tpl->tpl_vars['_block']->value->block[1]));?>
+            <?php $_smarty_tpl->tpl_vars['is_left_part_terminal'] = new Smarty_variable(false, null, 0);?>
+            <?php $_smarty_tpl->tpl_vars['is_right_part_terminal'] = new Smarty_variable(false, null, 0);?>
 
+            <?php if ($_smarty_tpl->tpl_vars['keys']->value[0]=="block"&&$_smarty_tpl->tpl_vars['keys']->value[1]=="l"){?>
+                <?php $_smarty_tpl->tpl_vars['left_block'] = new Smarty_variable($_smarty_tpl->tpl_vars['_block']->value->block, null, 0);?>
+                <?php $_smarty_tpl->tpl_vars['right_block'] = new Smarty_variable($_smarty_tpl->tpl_vars['_block']->value->l, null, 0);?>
+                <?php $_smarty_tpl->tpl_vars['is_right_part_terminal'] = new Smarty_variable(true, null, 0);?>
+            <?php }elseif($_smarty_tpl->tpl_vars['keys']->value[0]=="l"&&$_smarty_tpl->tpl_vars['keys']->value[1]=="block"){?>
+                <?php $_smarty_tpl->tpl_vars['left_block'] = new Smarty_variable($_smarty_tpl->tpl_vars['_block']->value->l, null, 0);?>
+                <?php $_smarty_tpl->tpl_vars['right_block'] = new Smarty_variable($_smarty_tpl->tpl_vars['_block']->value->block, null, 0);?>
+                <?php $_smarty_tpl->tpl_vars['is_left_part_terminal'] = new Smarty_variable(true, null, 0);?>
+            <?php }else{ ?>
+                <?php $_smarty_tpl->tpl_vars['left_block'] = new Smarty_variable($_smarty_tpl->tpl_vars['_block']->value->block[0], null, 0);?>
+                <?php $_smarty_tpl->tpl_vars['right_block'] = new Smarty_variable($_smarty_tpl->tpl_vars['_block']->value->block[1], null, 0);?>
+            <?php }?>
+
+            <?php if ($_smarty_tpl->tpl_vars['is_left_part_terminal']->value!=true){?>
+                <?php if ($_smarty_tpl->tpl_vars['byobBlock']->value->isFunction($_smarty_tpl->tpl_vars['left_block']->value->s)){?>
+                    <?php smarty_template_function_executeFunctionStatement($_smarty_tpl,array('_block'=>$_smarty_tpl->tpl_vars['left_block']->value));?>
+
+                <?php }else{ ?>
+                    <?php smarty_template_function_executeCondition($_smarty_tpl,array('_block'=>$_smarty_tpl->tpl_vars['left_block']->value));?>
+
+                <?php }?>
+            <?php }else{ ?>
+                <?php echo $_smarty_tpl->tpl_vars['left_block']->value;?>
+
+            <?php }?>
+
+
+            <?php echo $_smarty_tpl->tpl_vars['byobBlock']->value->getAlternateValue($_smarty_tpl->tpl_vars['_block']->value->s);?>
+
+
+            <?php if ($_smarty_tpl->tpl_vars['is_right_part_terminal']->value!=true){?>
+                <?php if ($_smarty_tpl->tpl_vars['byobBlock']->value->isFunction($_smarty_tpl->tpl_vars['right_block']->value->s)){?>
+                    <?php smarty_template_function_executeFunctionStatement($_smarty_tpl,array('_block'=>$_smarty_tpl->tpl_vars['right_block']->value));?>
+
+                <?php }else{ ?>
+                    <?php smarty_template_function_executeCondition($_smarty_tpl,array('_block'=>$_smarty_tpl->tpl_vars['right_block']->value));?>
+
+                <?php }?>
+            <?php }else{ ?>
+                <?php echo $_smarty_tpl->tpl_vars['right_block']->value;?>
+
+            <?php }?>
         <?php }?>
     <?php if ($_smarty_tpl->tpl_vars['byobBlock']->value->isOperator($_smarty_tpl->tpl_vars['_block']->value->s)){?>
         )
@@ -195,6 +244,18 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
 foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl_vars[$key])) $_smarty_tpl->tpl_vars[$key] = $value;}}?>
 
 
+<?php if (!function_exists('smarty_template_function_executeFunctionStatement')) {
+    function smarty_template_function_executeFunctionStatement($_smarty_tpl,$params) {
+    $saved_tpl_vars = $_smarty_tpl->tpl_vars;
+    foreach ($_smarty_tpl->smarty->template_functions['executeFunctionStatement']['parameter'] as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);};
+    foreach ($params as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);}?>
+    <?php echo $_smarty_tpl->tpl_vars['byobBlock']->value->getAlternateValue($_smarty_tpl->tpl_vars['_block']->value->s);?>
+(<?php smarty_template_function_executeFunctionParam($_smarty_tpl,array('_block'=>$_smarty_tpl->tpl_vars['_block']->value));?>
+)
+<?php $_smarty_tpl->tpl_vars = $saved_tpl_vars;
+foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl_vars[$key])) $_smarty_tpl->tpl_vars[$key] = $value;}}?>
+
+
 <?php if (!function_exists('smarty_template_function_executeStatement')) {
     function smarty_template_function_executeStatement($_smarty_tpl,$params) {
     $saved_tpl_vars = $_smarty_tpl->tpl_vars;
@@ -210,9 +271,8 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
         <?php smarty_template_function_executeRepeatStatement($_smarty_tpl,array('_block'=>$_smarty_tpl->tpl_vars['_block']->value));?>
 
     <?php }else{ ?>
-        <?php echo $_smarty_tpl->tpl_vars['_block']->value->s;?>
-(<?php smarty_template_function_executeFunctionParam($_smarty_tpl,array('_block'=>$_smarty_tpl->tpl_vars['_block']->value));?>
-);
+        <?php smarty_template_function_executeFunctionStatement($_smarty_tpl,array('_block'=>$_smarty_tpl->tpl_vars['_block']->value));?>
+;
     <?php }?>
 <?php $_smarty_tpl->tpl_vars = $saved_tpl_vars;
 foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl_vars[$key])) $_smarty_tpl->tpl_vars[$key] = $value;}}?>
