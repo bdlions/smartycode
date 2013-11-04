@@ -20,7 +20,13 @@
         (
     {/if}
         {if !isset($_block->block)}
-            {$byobBlock->getAlternateValue($_block->s)}
+            {$right_block = "" }
+            {$left_block = "" }
+            {if isset($_block->l) && is_array($_block->l)}
+                {$left_block = $_block->l[0]}
+                {$right_block = $_block->l[1]}
+            {/if}
+            {$left_block}{$byobBlock->getAlternateValue($_block->s)}{$right_block}
         {else}
             
             {$block_arr = get_object_vars($_block)}
