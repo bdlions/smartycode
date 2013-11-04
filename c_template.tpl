@@ -1,22 +1,68 @@
+{function executeFunctionParam _block = null}
+    {$_count = 0}
+    {if isset($_block->l)}
+        {foreach from = $_block->l item = _param}
+            {if $_count > 0}
+                ,
+            {/if}
+            {$_count = $_count + 1}
+            {$_param}
+        {/foreach}
+    {/if}
+{/function}
+
+{function executeFunctionStatement _block = null}
+    {$byobBlock->getAlternateValue($_block->s)}({executeFunctionParam _block = $_block})
+{/function}
+
 {function executeCondition _block = null}
     {if $byobBlock->isOperator($_block->s)}
         (
     {/if}
-        {if isset( $_block->block[0]) && $_block->block[0] != null}
-            {if $byobBlock->isFunction($_block->block[0]->s)}
-                {executeFunctionStatement _block = $_block->block[0]}
+        {if !isset($_block->block)}
+            {$byobBlock->getAlternateValue($_block->s)}
+        {else}
+            
+            {$block_arr = get_object_vars($_block)}
+            {$keys = array_keys($block_arr)}
+
+            {$is_left_part_terminal = false }
+            {$is_right_part_terminal = false }
+
+            {if $keys[ 0 ] == "block" && $keys[ 1 ] == "l" }
+                {$left_block = $_block->block}
+                {$right_block = $_block->l}
+                {$is_right_part_terminal = true }
+            {elseif $keys[ 0 ] == "l" && $keys[ 1 ] == "block" }
+                {$left_block = $_block->l}
+                {$right_block = $_block->block}
+                {$is_left_part_terminal = true }
             {else}
-                {call executeCondition _block = $_block->block[0]}
+                {$left_block = $_block->block[0]}
+                {$right_block = $_block->block[1]}
             {/if}
-        {/if}
-        
-        {$byobBlock->getAlternateValue($_block->s)}
-        
-        {if isset( $_block->block[1]) && $_block->block[1] != null}
-            {if $byobBlock->isFunction($_block->block[1]->s)}
-                {executeFunctionStatement _block = $_block->block[1]}
+
+            {if $is_left_part_terminal != true }
+                {if $byobBlock->isFunction($left_block->s)}
+                    {executeFunctionStatement _block = $left_block}
+                {else}
+                    {call executeCondition _block = $left_block}
+                {/if}
             {else}
-                {call executeCondition _block = $_block->block[1]}
+                {$left_block}
+            {/if}
+
+
+            {$byobBlock->getAlternateValue($_block->s)}
+
+            {if $is_right_part_terminal != true }
+                {if $byobBlock->isFunction($right_block->s)}
+                    {executeFunctionStatement _block = $right_block}
+                {else}
+                    {call executeCondition _block = $right_block}
+                {/if}
+            {else}
+                {$right_block}
             {/if}
         {/if}
     {if $byobBlock->isOperator($_block->s)}
@@ -45,18 +91,7 @@
     }
 {/function}
 
-{function executeFunctionParam _block = null}
-    {$_count = 0}
-    {if isset($_block->l)}
-        {foreach from = $_block->l item = _param}
-            {if $_count > 0}
-                ,
-            {/if}
-            {$_count = $_count + 1}
-            {$_param}
-        {/foreach}
-    {/if}
-{/function}
+
 
 {function executeRepeatStatement _block = null}
     repeat({$_block->l})
@@ -66,9 +101,7 @@
     }
 {/function}
 
-{function executeFunctionStatement _block = null}
-    {$byobBlock->getAlternateValue($_block->s)}({executeFunctionParam _block = $_block})
-{/function}
+
 
 {function executeStatement _block = null}
     {if $_block->s == 'doIf'}
