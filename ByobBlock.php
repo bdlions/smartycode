@@ -13,6 +13,9 @@
 class ByobBlock {
     public $blocks = array();
     public $blockMap = array();
+    public $functionsMap = array();
+    public $actionsMap = array();
+    public $variablesMap = array();
     
     public function __construct($xml, $mapping) {
         //$project = simplexml_load_string($xml);
@@ -28,7 +31,11 @@ class ByobBlock {
         echo "      ---------------------";*/
         //print_r($bl);
         //$this->blockMap = json_decode(file_get_contents("http://localhost:82/json/blockMap"), true);
-        $this->blockMap = $mapping;
+        $this->blockMap = $mapping["operators"];
+        $this->functionsMap = $mapping["functions"];
+        $this->actionsMap = $mapping["actions"];
+        $this->variablesMap = $mapping['variables'];
+        //print_r(count($this->variablesMap));
     }
     
     public function getAlternateValue($name){
@@ -39,13 +46,14 @@ class ByobBlock {
     }
     
     public function isOperator($value) {
-        return $value == "reportAnd" ||
-                $value == "reportLessThan" ||
-                $value == "reportOr";
+        if(isset($this->blockMap[(string)$value])){
+            return true;
+        }
+        return false;
     }
     
     public function isFunction($name){
-        if($name == "reportRound"){
+        if(isset($this->functionsMap[(string)$name])){
             return true;
         }
         return false;

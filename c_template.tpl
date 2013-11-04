@@ -77,7 +77,7 @@
 {/function}
 
 {function executeIfStatement _block = null}
-    if({executeCondition _block = $_block->block})
+    if{executeCondition _block = $_block->block}
     {
         {*Execute if statement*}
         {executeListStatement _list = $_block->script->block}
@@ -85,7 +85,7 @@
 {/function}
 
 {function executeIfElseStatement _block = null}
-    if({executeCondition _block = $_block->block})
+    if{executeCondition _block = $_block->block}
     {
         {*Execute if statement*}
         {executeListStatement _list = $_block->script[0]->block}
@@ -107,6 +107,18 @@
     }
 {/function}
 
+{function executeAgeStatement _block = null}
+    {$byobBlock->getAlternateValue($_block->s)}[{executeFunctionParam _block = $_block}]
+{/function}
+
+{function executeFunctionStatement _block = null}
+    {if $_block->s == "Age"}
+        {executeAgeStatement _block = $_block}
+    {else}
+        {$byobBlock->getAlternateValue($_block->s)}({executeFunctionParam _block = $_block})
+    {/if}
+    
+{/function}
 
 
 {function executeStatement _block = null}
@@ -130,5 +142,9 @@
         {executeStatement _block = $_list}
     {/if}
 {/function}
-
+{if is_array($byobBlock->variablesMap)}
+    {foreach from = $byobBlock->variablesMap item = _block}
+        {$_block['type']} {$_block['name']} = {$_block['value']};
+    {/foreach}
+{/if}
 {executeListStatement _list = $byobBlock->blocks}
