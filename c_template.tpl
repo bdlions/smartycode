@@ -11,8 +11,17 @@
     {/if}
 {/function}
 
+{function executeAgeStatement _block = null}
+    {$byobBlock->getAlternateValue($_block->s)}[{executeFunctionParam _block = $_block}]
+{/function}
+
 {function executeFunctionStatement _block = null}
-    {$byobBlock->getAlternateValue($_block->s)}({executeFunctionParam _block = $_block})
+    {if $_block->s == "Age"}
+        {executeAgeStatement _block = $_block}
+    {else}
+        {$byobBlock->getAlternateValue($_block->s)}({executeFunctionParam _block = $_block})
+    {/if}
+    
 {/function}
 
 {function executeCondition _block = null}
@@ -20,6 +29,7 @@
         (
     {/if}
         {if !isset($_block->block)}
+            {* if both sides are constant in a condition*}
             {$right_block = "" }
             {$left_block = "" }
             {if isset($_block->l) && is_array($_block->l)}
@@ -107,19 +117,6 @@
     }
 {/function}
 
-{function executeAgeStatement _block = null}
-    {$byobBlock->getAlternateValue($_block->s)}[{executeFunctionParam _block = $_block}]
-{/function}
-
-{function executeFunctionStatement _block = null}
-    {if $_block->s == "Age"}
-        {executeAgeStatement _block = $_block}
-    {else}
-        {$byobBlock->getAlternateValue($_block->s)}({executeFunctionParam _block = $_block})
-    {/if}
-    
-{/function}
-
 
 {function executeStatement _block = null}
     {if $_block->s == 'doIf'}
@@ -142,9 +139,10 @@
         {executeStatement _block = $_list}
     {/if}
 {/function}
-{if is_array($byobBlock->variablesMap)}
+{if isset($byobBlock->variablesMap) && is_array($byobBlock->variablesMap)}
     {foreach from = $byobBlock->variablesMap item = _block}
         {$_block['type']} {$_block['name']} = {$_block['value']};
     {/foreach}
 {/if}
+{* this statement execute first*}
 {executeListStatement _list = $byobBlock->blocks}
