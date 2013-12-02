@@ -34,7 +34,10 @@ class ByobBlock {
         $this->blockMap = $mapping["operators"];
         $this->functionsMap = $mapping["functions"];
         $this->actionsMap = $mapping["actions"];
-        $this->variablesMap = $mapping['variables'];
+        if( isset($mapping['variables']))
+        {
+            $this->variablesMap = $mapping['variables'];
+        }        
         //print_r(count($this->variablesMap));
     }
     

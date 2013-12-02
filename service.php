@@ -7,6 +7,7 @@
     $mapping = $_POST['mapping'];
     $xml= json_decode (json_encode ($xml), FALSE);
     //print_r($mapping['reportAnd']);
+    //print_r($mapping);
     $smarty->assign('byobBlock', new ByobBlock($xml, $mapping));
     $smarty->display('c_template.tpl');
 ?>

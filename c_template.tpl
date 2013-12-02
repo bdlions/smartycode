@@ -85,6 +85,18 @@
         )
     {/if}
 {/function}
+{function executeAssignmentAction _block = null}
+    {if !isset($_block->block)}
+        {* if both sides are constant in a condition*}
+        {$right_block = "" }
+        {$left_block = "" }
+        {if isset($_block->l) && is_array($_block->l)}
+            {$left_block = $_block->l[0]}
+            {$right_block = $_block->l[1]}
+        {/if}
+        {$left_block}{$byobBlock->getAlternateValue($_block->s)}{$right_block};
+    {/if}    
+{/function}
 
 {function executeIfStatement _block = null}
     if{executeCondition _block = $_block->block}
@@ -125,6 +137,8 @@
         {executeIfElseStatement _block = $_block}
     {elseif $_block->s == 'doRepeat'}
         {executeRepeatStatement _block = $_block}
+    {elseif $byobBlock->isOperator($_block->s)}
+        {executeAssignmentAction _block = $_block}
     {else}
         {executeFunctionStatement _block = $_block};
     {/if}
@@ -141,7 +155,7 @@
 {/function}
 {if isset($byobBlock->variablesMap) && is_array($byobBlock->variablesMap)}
     {foreach from = $byobBlock->variablesMap item = _block}
-        {$_block['type']} {$_block['name']} = {$_block['value']};
+        {$_block['variable_type']} {$_block['variable_name']} = {$_block['variable_value']};
     {/foreach}
 {/if}
 {* this statement execute first*}

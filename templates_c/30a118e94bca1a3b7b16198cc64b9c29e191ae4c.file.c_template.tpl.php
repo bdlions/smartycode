@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2013-11-03 17:40:40
+<?php /* Smarty version Smarty-3.1.14, created on 2013-12-01 18:38:34
          compiled from "c_template.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:276985258485b69e4b1-40284974%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:977052779ce24ae433-08978994%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '30a118e94bca1a3b7b16198cc64b9c29e191ae4c' => 
     array (
       0 => 'c_template.tpl',
-      1 => 1383496837,
+      1 => 1385919508,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '276985258485b69e4b1-40284974',
+  'nocache_hash' => '977052779ce24ae433-08978994',
   'function' => 
   array (
     'executeListStatement' => 
@@ -19,6 +19,22 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       'parameter' => 
       array (
         '_list' => NULL,
+      ),
+      'compiled' => '',
+    ),
+    'executeFunctionParam' => 
+    array (
+      'parameter' => 
+      array (
+        '_block' => NULL,
+      ),
+      'compiled' => '',
+    ),
+    'executeFunctionStatement' => 
+    array (
+      'parameter' => 
+      array (
+        '_block' => NULL,
       ),
       'compiled' => '',
     ),
@@ -46,14 +62,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       ),
       'compiled' => '',
     ),
-    'executeFunctionParam' => 
-    array (
-      'parameter' => 
-      array (
-        '_block' => NULL,
-      ),
-      'compiled' => '',
-    ),
     'executeRepeatStatement' => 
     array (
       'parameter' => 
@@ -62,7 +70,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       ),
       'compiled' => '',
     ),
-    'executeFunctionStatement' => 
+    'executeAgeStatement' => 
     array (
       'parameter' => 
       array (
@@ -78,26 +86,88 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       ),
       'compiled' => '',
     ),
+    'executeAssignmentAction' => 
+    array (
+      'parameter' => 
+      array (
+        '_block' => NULL,
+      ),
+      'compiled' => '',
+    ),
   ),
   'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_5258485b79c372_92834743',
+  'unifunc' => 'content_52779ce24eede3_78496904',
   'variables' => 
   array (
     '_block' => 0,
+    '_count' => 0,
+    '_param' => 0,
     'byobBlock' => 0,
+    'left_block' => 0,
+    'right_block' => 0,
     'block_arr' => 0,
     'keys' => 0,
     'is_left_part_terminal' => 0,
-    'left_block' => 0,
     'is_right_part_terminal' => 0,
-    'right_block' => 0,
-    '_count' => 0,
-    '_param' => 0,
     '_list' => 0,
   ),
   'has_nocache_code' => 0,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5258485b79c372_92834743')) {function content_5258485b79c372_92834743($_smarty_tpl) {?><?php if (!function_exists('smarty_template_function_executeCondition')) {
+<?php if ($_valid && !is_callable('content_52779ce24eede3_78496904')) {function content_52779ce24eede3_78496904($_smarty_tpl) {?><?php if (!function_exists('smarty_template_function_executeFunctionParam')) {
+    function smarty_template_function_executeFunctionParam($_smarty_tpl,$params) {
+    $saved_tpl_vars = $_smarty_tpl->tpl_vars;
+    foreach ($_smarty_tpl->smarty->template_functions['executeFunctionParam']['parameter'] as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);};
+    foreach ($params as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);}?>
+    <?php $_smarty_tpl->tpl_vars['_count'] = new Smarty_variable(0, null, 0);?>
+    <?php if (isset($_smarty_tpl->tpl_vars['_block']->value->l)){?>
+        <?php  $_smarty_tpl->tpl_vars['_param'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['_param']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['_block']->value->l; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['_param']->key => $_smarty_tpl->tpl_vars['_param']->value){
+$_smarty_tpl->tpl_vars['_param']->_loop = true;
+?>
+            <?php if ($_smarty_tpl->tpl_vars['_count']->value>0){?>
+                ,
+            <?php }?>
+            <?php $_smarty_tpl->tpl_vars['_count'] = new Smarty_variable($_smarty_tpl->tpl_vars['_count']->value+1, null, 0);?>
+            <?php echo $_smarty_tpl->tpl_vars['_param']->value;?>
+
+        <?php } ?>
+    <?php }?>
+<?php $_smarty_tpl->tpl_vars = $saved_tpl_vars;
+foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl_vars[$key])) $_smarty_tpl->tpl_vars[$key] = $value;}}?>
+
+
+<?php if (!function_exists('smarty_template_function_executeAgeStatement')) {
+    function smarty_template_function_executeAgeStatement($_smarty_tpl,$params) {
+    $saved_tpl_vars = $_smarty_tpl->tpl_vars;
+    foreach ($_smarty_tpl->smarty->template_functions['executeAgeStatement']['parameter'] as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);};
+    foreach ($params as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);}?>
+    <?php echo $_smarty_tpl->tpl_vars['byobBlock']->value->getAlternateValue($_smarty_tpl->tpl_vars['_block']->value->s);?>
+[<?php smarty_template_function_executeFunctionParam($_smarty_tpl,array('_block'=>$_smarty_tpl->tpl_vars['_block']->value));?>
+]
+<?php $_smarty_tpl->tpl_vars = $saved_tpl_vars;
+foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl_vars[$key])) $_smarty_tpl->tpl_vars[$key] = $value;}}?>
+
+
+<?php if (!function_exists('smarty_template_function_executeFunctionStatement')) {
+    function smarty_template_function_executeFunctionStatement($_smarty_tpl,$params) {
+    $saved_tpl_vars = $_smarty_tpl->tpl_vars;
+    foreach ($_smarty_tpl->smarty->template_functions['executeFunctionStatement']['parameter'] as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);};
+    foreach ($params as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);}?>
+    <?php if ($_smarty_tpl->tpl_vars['_block']->value->s=="Age"){?>
+        <?php smarty_template_function_executeAgeStatement($_smarty_tpl,array('_block'=>$_smarty_tpl->tpl_vars['_block']->value));?>
+
+    <?php }else{ ?>
+        <?php echo $_smarty_tpl->tpl_vars['byobBlock']->value->getAlternateValue($_smarty_tpl->tpl_vars['_block']->value->s);?>
+(<?php smarty_template_function_executeFunctionParam($_smarty_tpl,array('_block'=>$_smarty_tpl->tpl_vars['_block']->value));?>
+)
+    <?php }?>
+    
+<?php $_smarty_tpl->tpl_vars = $saved_tpl_vars;
+foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl_vars[$key])) $_smarty_tpl->tpl_vars[$key] = $value;}}?>
+
+
+<?php if (!function_exists('smarty_template_function_executeCondition')) {
     function smarty_template_function_executeCondition($_smarty_tpl,$params) {
     $saved_tpl_vars = $_smarty_tpl->tpl_vars;
     foreach ($_smarty_tpl->smarty->template_functions['executeCondition']['parameter'] as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);};
@@ -106,7 +176,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         (
     <?php }?>
         <?php if (!isset($_smarty_tpl->tpl_vars['_block']->value->block)){?>
-            <?php echo $_smarty_tpl->tpl_vars['byobBlock']->value->getAlternateValue($_smarty_tpl->tpl_vars['_block']->value->s);?>
+            
+            <?php $_smarty_tpl->tpl_vars['right_block'] = new Smarty_variable('', null, 0);?>
+            <?php $_smarty_tpl->tpl_vars['left_block'] = new Smarty_variable('', null, 0);?>
+            <?php if (isset($_smarty_tpl->tpl_vars['_block']->value->l)&&is_array($_smarty_tpl->tpl_vars['_block']->value->l)){?>
+                <?php $_smarty_tpl->tpl_vars['left_block'] = new Smarty_variable($_smarty_tpl->tpl_vars['_block']->value->l[0], null, 0);?>
+                <?php $_smarty_tpl->tpl_vars['right_block'] = new Smarty_variable($_smarty_tpl->tpl_vars['_block']->value->l[1], null, 0);?>
+            <?php }?>
+            <?php echo $_smarty_tpl->tpl_vars['left_block']->value;?>
+<?php echo $_smarty_tpl->tpl_vars['byobBlock']->value->getAlternateValue($_smarty_tpl->tpl_vars['_block']->value->s);?>
+<?php echo $_smarty_tpl->tpl_vars['right_block']->value;?>
 
         <?php }else{ ?>
             
@@ -165,14 +244,35 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php $_smarty_tpl->tpl_vars = $saved_tpl_vars;
 foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl_vars[$key])) $_smarty_tpl->tpl_vars[$key] = $value;}}?>
 
+<?php if (!function_exists('smarty_template_function_executeAssignmentAction')) {
+    function smarty_template_function_executeAssignmentAction($_smarty_tpl,$params) {
+    $saved_tpl_vars = $_smarty_tpl->tpl_vars;
+    foreach ($_smarty_tpl->smarty->template_functions['executeAssignmentAction']['parameter'] as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);};
+    foreach ($params as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);}?>
+    <?php if (!isset($_smarty_tpl->tpl_vars['_block']->value->block)){?>
+        
+        <?php $_smarty_tpl->tpl_vars['right_block'] = new Smarty_variable('', null, 0);?>
+        <?php $_smarty_tpl->tpl_vars['left_block'] = new Smarty_variable('', null, 0);?>
+        <?php if (isset($_smarty_tpl->tpl_vars['_block']->value->l)&&is_array($_smarty_tpl->tpl_vars['_block']->value->l)){?>
+            <?php $_smarty_tpl->tpl_vars['left_block'] = new Smarty_variable($_smarty_tpl->tpl_vars['_block']->value->l[0], null, 0);?>
+            <?php $_smarty_tpl->tpl_vars['right_block'] = new Smarty_variable($_smarty_tpl->tpl_vars['_block']->value->l[1], null, 0);?>
+        <?php }?>
+        <?php echo $_smarty_tpl->tpl_vars['left_block']->value;?>
+<?php echo $_smarty_tpl->tpl_vars['byobBlock']->value->getAlternateValue($_smarty_tpl->tpl_vars['_block']->value->s);?>
+<?php echo $_smarty_tpl->tpl_vars['right_block']->value;?>
+;
+    <?php }?>    
+<?php $_smarty_tpl->tpl_vars = $saved_tpl_vars;
+foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl_vars[$key])) $_smarty_tpl->tpl_vars[$key] = $value;}}?>
+
 
 <?php if (!function_exists('smarty_template_function_executeIfStatement')) {
     function smarty_template_function_executeIfStatement($_smarty_tpl,$params) {
     $saved_tpl_vars = $_smarty_tpl->tpl_vars;
     foreach ($_smarty_tpl->smarty->template_functions['executeIfStatement']['parameter'] as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);};
     foreach ($params as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);}?>
-    if(<?php smarty_template_function_executeCondition($_smarty_tpl,array('_block'=>$_smarty_tpl->tpl_vars['_block']->value->block));?>
-)
+    if<?php smarty_template_function_executeCondition($_smarty_tpl,array('_block'=>$_smarty_tpl->tpl_vars['_block']->value->block));?>
+
     {
         
         <?php smarty_template_function_executeListStatement($_smarty_tpl,array('_list'=>$_smarty_tpl->tpl_vars['_block']->value->script->block));?>
@@ -187,8 +287,8 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
     $saved_tpl_vars = $_smarty_tpl->tpl_vars;
     foreach ($_smarty_tpl->smarty->template_functions['executeIfElseStatement']['parameter'] as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);};
     foreach ($params as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);}?>
-    if(<?php smarty_template_function_executeCondition($_smarty_tpl,array('_block'=>$_smarty_tpl->tpl_vars['_block']->value->block));?>
-)
+    if<?php smarty_template_function_executeCondition($_smarty_tpl,array('_block'=>$_smarty_tpl->tpl_vars['_block']->value->block));?>
+
     {
         
         <?php smarty_template_function_executeListStatement($_smarty_tpl,array('_list'=>$_smarty_tpl->tpl_vars['_block']->value->script[0]->block));?>
@@ -204,28 +304,6 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
 foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl_vars[$key])) $_smarty_tpl->tpl_vars[$key] = $value;}}?>
 
 
-<?php if (!function_exists('smarty_template_function_executeFunctionParam')) {
-    function smarty_template_function_executeFunctionParam($_smarty_tpl,$params) {
-    $saved_tpl_vars = $_smarty_tpl->tpl_vars;
-    foreach ($_smarty_tpl->smarty->template_functions['executeFunctionParam']['parameter'] as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);};
-    foreach ($params as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);}?>
-    <?php $_smarty_tpl->tpl_vars['_count'] = new Smarty_variable(0, null, 0);?>
-    <?php if (isset($_smarty_tpl->tpl_vars['_block']->value->l)){?>
-        <?php  $_smarty_tpl->tpl_vars['_param'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['_param']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['_block']->value->l; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['_param']->key => $_smarty_tpl->tpl_vars['_param']->value){
-$_smarty_tpl->tpl_vars['_param']->_loop = true;
-?>
-            <?php if ($_smarty_tpl->tpl_vars['_count']->value>0){?>
-                ,
-            <?php }?>
-            <?php $_smarty_tpl->tpl_vars['_count'] = new Smarty_variable($_smarty_tpl->tpl_vars['_count']->value+1, null, 0);?>
-            <?php echo $_smarty_tpl->tpl_vars['_param']->value;?>
-
-        <?php } ?>
-    <?php }?>
-<?php $_smarty_tpl->tpl_vars = $saved_tpl_vars;
-foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl_vars[$key])) $_smarty_tpl->tpl_vars[$key] = $value;}}?>
 
 
 <?php if (!function_exists('smarty_template_function_executeRepeatStatement')) {
@@ -244,17 +322,6 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
 foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl_vars[$key])) $_smarty_tpl->tpl_vars[$key] = $value;}}?>
 
 
-<?php if (!function_exists('smarty_template_function_executeFunctionStatement')) {
-    function smarty_template_function_executeFunctionStatement($_smarty_tpl,$params) {
-    $saved_tpl_vars = $_smarty_tpl->tpl_vars;
-    foreach ($_smarty_tpl->smarty->template_functions['executeFunctionStatement']['parameter'] as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);};
-    foreach ($params as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);}?>
-    <?php echo $_smarty_tpl->tpl_vars['byobBlock']->value->getAlternateValue($_smarty_tpl->tpl_vars['_block']->value->s);?>
-(<?php smarty_template_function_executeFunctionParam($_smarty_tpl,array('_block'=>$_smarty_tpl->tpl_vars['_block']->value));?>
-)
-<?php $_smarty_tpl->tpl_vars = $saved_tpl_vars;
-foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl_vars[$key])) $_smarty_tpl->tpl_vars[$key] = $value;}}?>
-
 
 <?php if (!function_exists('smarty_template_function_executeStatement')) {
     function smarty_template_function_executeStatement($_smarty_tpl,$params) {
@@ -269,6 +336,9 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
 
     <?php }elseif($_smarty_tpl->tpl_vars['_block']->value->s=='doRepeat'){?>
         <?php smarty_template_function_executeRepeatStatement($_smarty_tpl,array('_block'=>$_smarty_tpl->tpl_vars['_block']->value));?>
+
+    <?php }elseif($_smarty_tpl->tpl_vars['byobBlock']->value->isOperator($_smarty_tpl->tpl_vars['_block']->value->s)){?>
+        <?php smarty_template_function_executeAssignmentAction($_smarty_tpl,array('_block'=>$_smarty_tpl->tpl_vars['_block']->value));?>
 
     <?php }else{ ?>
         <?php smarty_template_function_executeFunctionStatement($_smarty_tpl,array('_block'=>$_smarty_tpl->tpl_vars['_block']->value));?>
@@ -299,6 +369,18 @@ $_smarty_tpl->tpl_vars['_block']->_loop = true;
 <?php $_smarty_tpl->tpl_vars = $saved_tpl_vars;
 foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl_vars[$key])) $_smarty_tpl->tpl_vars[$key] = $value;}}?>
 
+<?php if (isset($_smarty_tpl->tpl_vars['byobBlock']->value->variablesMap)&&is_array($_smarty_tpl->tpl_vars['byobBlock']->value->variablesMap)){?>
+    <?php  $_smarty_tpl->tpl_vars['_block'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['_block']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['byobBlock']->value->variablesMap; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['_block']->key => $_smarty_tpl->tpl_vars['_block']->value){
+$_smarty_tpl->tpl_vars['_block']->_loop = true;
+?>
+        <?php echo $_smarty_tpl->tpl_vars['_block']->value['variable_type'];?>
+ <?php echo $_smarty_tpl->tpl_vars['_block']->value['variable_name'];?>
+ = <?php echo $_smarty_tpl->tpl_vars['_block']->value['variable_value'];?>
+;
+    <?php } ?>
+<?php }?>
 
 <?php smarty_template_function_executeListStatement($_smarty_tpl,array('_list'=>$_smarty_tpl->tpl_vars['byobBlock']->value->blocks));?>
 <?php }} ?>
