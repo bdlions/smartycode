@@ -6,7 +6,7 @@
                 ,
             {/if}
             {$_count = $_count + 1}
-            {$_param}
+            {$byobBlock->getAlternateFunctionParamName($_param)}
         {/foreach}
     {/if}
 {/function}
@@ -41,10 +41,10 @@
             
             {$block_arr = get_object_vars($_block)}
             {$keys = array_keys($block_arr)}
-
+            
             {$is_left_part_terminal = false }
             {$is_right_part_terminal = false }
-
+            
             {if $keys[ 0 ] == "block" && $keys[ 1 ] == "l" }
                 {$left_block = $_block->block}
                 {$right_block = $_block->l}

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2013-12-01 18:38:34
+<?php /* Smarty version Smarty-3.1.14, created on 2014-02-03 17:55:48
          compiled from "c_template.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:977052779ce24ae433-08978994%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '30a118e94bca1a3b7b16198cc64b9c29e191ae4c' => 
     array (
       0 => 'c_template.tpl',
-      1 => 1385919508,
+      1 => 1391438126,
       2 => 'file',
     ),
   ),
@@ -129,7 +129,7 @@ $_smarty_tpl->tpl_vars['_param']->_loop = true;
                 ,
             <?php }?>
             <?php $_smarty_tpl->tpl_vars['_count'] = new Smarty_variable($_smarty_tpl->tpl_vars['_count']->value+1, null, 0);?>
-            <?php echo $_smarty_tpl->tpl_vars['_param']->value;?>
+            <?php echo $_smarty_tpl->tpl_vars['byobBlock']->value->getAlternateFunctionParamName($_smarty_tpl->tpl_vars['_param']->value);?>
 
         <?php } ?>
     <?php }?>
@@ -191,10 +191,10 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
             
             <?php $_smarty_tpl->tpl_vars['block_arr'] = new Smarty_variable(get_object_vars($_smarty_tpl->tpl_vars['_block']->value), null, 0);?>
             <?php $_smarty_tpl->tpl_vars['keys'] = new Smarty_variable(array_keys($_smarty_tpl->tpl_vars['block_arr']->value), null, 0);?>
-
+            
             <?php $_smarty_tpl->tpl_vars['is_left_part_terminal'] = new Smarty_variable(false, null, 0);?>
             <?php $_smarty_tpl->tpl_vars['is_right_part_terminal'] = new Smarty_variable(false, null, 0);?>
-
+            
             <?php if ($_smarty_tpl->tpl_vars['keys']->value[0]=="block"&&$_smarty_tpl->tpl_vars['keys']->value[1]=="l"){?>
                 <?php $_smarty_tpl->tpl_vars['left_block'] = new Smarty_variable($_smarty_tpl->tpl_vars['_block']->value->block, null, 0);?>
                 <?php $_smarty_tpl->tpl_vars['right_block'] = new Smarty_variable($_smarty_tpl->tpl_vars['_block']->value->l, null, 0);?>

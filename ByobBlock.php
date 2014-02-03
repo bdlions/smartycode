@@ -13,9 +13,11 @@
 class ByobBlock {
     public $blocks = array();
     public $blockMap = array();
+    public $arithmeticOperatorsMap = array();
     public $functionsMap = array();
     public $actionsMap = array();
     public $variablesMap = array();
+    public $functionParamsMap = array();
     
     public function __construct($xml, $mapping) {
         //$project = simplexml_load_string($xml);
@@ -32,8 +34,10 @@ class ByobBlock {
         //print_r($bl);
         //$this->blockMap = json_decode(file_get_contents("http://localhost:82/json/blockMap"), true);
         $this->blockMap = $mapping["operators"];
+        $this->arithmeticOperatorsMap = $mapping["arithmetic_operators"];
         $this->functionsMap = $mapping["functions"];
         $this->actionsMap = $mapping["actions"];
+        $this->functionParamsMap = $mapping["function_params"];
         if( isset($mapping['variables']))
         {
             $this->variablesMap = $mapping['variables'];
@@ -46,6 +50,13 @@ class ByobBlock {
             return $this->blockMap[(string)$name];
         }
         return $name;
+    }
+    
+    public function isArithmeticOperator($value) {
+        if(isset($this->arithmeticOperatorsMap[(string)$value])){
+            return true;
+        }
+        return false;
     }
     
     public function isOperator($value) {
@@ -62,7 +73,12 @@ class ByobBlock {
         return false;
     }
     
-    
+    public function getAlternateFunctionParamName($name){
+        if(isset($this->functionParamsMap[(string)$name])){
+            return $this->functionParamsMap[(string)$name];
+        }
+        return $name;
+    }
 }
 
 ?>
