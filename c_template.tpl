@@ -25,7 +25,7 @@
 {/function}
 
 {function executeCondition _block = null}
-    {if $byobBlock->isOperator($_block->s)}
+    {if $byobBlock->isOperator($_block->s) || $byobBlock->isArithmeticOperator($_block->s)}
         (
     {/if}
         {if !isset($_block->block)}
@@ -81,7 +81,7 @@
                 {$right_block}
             {/if}
         {/if}
-    {if $byobBlock->isOperator($_block->s)}
+    {if $byobBlock->isOperator($_block->s) || $byobBlock->isArithmeticOperator($_block->s)}
         )
     {/if}
 {/function}
