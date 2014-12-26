@@ -1,0 +1,42 @@
+{
+	"operators":
+	{    
+		"AND":"&&",
+		"OR":"||",
+		"&&":"&&",
+		"||":"||",
+		">":">",
+                ">=":">=",
+		"<":"<",
+                "<=":"<=",
+                "==":"==",
+		"=":"="
+	},
+	"arithmetic_operators":
+	{    
+		"+":"+",
+		"-":"-",
+		"*":"*",
+		"/":"/"
+	},
+	"functions":
+	{
+		"Age":"basicfunction",
+		"AdvancedAge":"advancedfunction",
+		"Height":"advancedfunction",
+		"custombyuser":"externaloption"
+	},
+        "function_params":
+	{
+		"Monday":"Mon"
+	},
+	"actions":
+	{
+		"Run":"action",
+		"Sleep":"action"
+	},
+	"variables":
+	{
+		
+	}
+}

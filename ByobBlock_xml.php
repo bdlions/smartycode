@@ -15,10 +15,10 @@ class ByobBlock {
     public $blockMap = array();
     
     public function __construct($xml) {
-        $project = simplexml_load_string($xml);
+        $project = simplexml_load_string(file_get_contents($xml));
         $this->blocks = $project->stage->sprites->sprite->scripts->script->block;
         
-        $this->blockMap = json_decode(file_get_contents("http://localhost:82/json/blockMap"), true);
+        $this->blockMap = json_decode(file_get_contents("http://localhost/smartycode/json/blockMap.json"), true);
     }
     
     public function getAlternateValue($name){

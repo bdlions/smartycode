@@ -9,5 +9,5 @@
     //print_r($mapping['reportAnd']);
     //print_r($mapping);
     $smarty->assign('byobBlock', new ByobBlock($xml, $mapping));
-    $smarty->display('java_template.tpl');
+    $smarty->display($_POST['language'].'_template.tpl');
 ?>
