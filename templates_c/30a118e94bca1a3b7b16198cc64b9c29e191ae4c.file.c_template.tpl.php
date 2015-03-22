@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-12-26 20:04:29
+<?php /* Smarty version Smarty-3.1.14, created on 2015-01-04 00:36:42
          compiled from "c_template.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:977052779ce24ae433-08978994%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '30a118e94bca1a3b7b16198cc64b9c29e191ae4c' => 
     array (
       0 => 'c_template.tpl',
-      1 => 1419521809,
+      1 => 1419881748,
       2 => 'file',
     ),
   ),
@@ -369,18 +369,20 @@ $_smarty_tpl->tpl_vars['_block']->_loop = true;
 <?php $_smarty_tpl->tpl_vars = $saved_tpl_vars;
 foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl_vars[$key])) $_smarty_tpl->tpl_vars[$key] = $value;}}?>
 
-<?php if (isset($_smarty_tpl->tpl_vars['byobBlock']->value->variablesMap)&&is_array($_smarty_tpl->tpl_vars['byobBlock']->value->variablesMap)){?>
-    <?php  $_smarty_tpl->tpl_vars['_block'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['_block']->_loop = false;
+int main()
+{
+    <?php if (isset($_smarty_tpl->tpl_vars['byobBlock']->value->variablesMap)&&is_array($_smarty_tpl->tpl_vars['byobBlock']->value->variablesMap)){?>
+        <?php  $_smarty_tpl->tpl_vars['_block'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['_block']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['byobBlock']->value->variablesMap; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['_block']->key => $_smarty_tpl->tpl_vars['_block']->value){
 $_smarty_tpl->tpl_vars['_block']->_loop = true;
 ?>
-        <?php echo $_smarty_tpl->tpl_vars['_block']->value['variable_type'];?>
+            <?php echo $_smarty_tpl->tpl_vars['_block']->value['variable_type'];?>
  <?php echo $_smarty_tpl->tpl_vars['_block']->value['variable_name'];?>
  = <?php echo $_smarty_tpl->tpl_vars['_block']->value['variable_value'];?>
 ;
-    <?php } ?>
-<?php }?>
+        <?php } ?>
+    <?php }?>
+    <?php smarty_template_function_executeListStatement($_smarty_tpl,array('_list'=>$_smarty_tpl->tpl_vars['byobBlock']->value->blocks));?>
 
-<?php smarty_template_function_executeListStatement($_smarty_tpl,array('_list'=>$_smarty_tpl->tpl_vars['byobBlock']->value->blocks));?>
-<?php }} ?>
+}<?php }} ?>

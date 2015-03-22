@@ -153,10 +153,12 @@
         {executeStatement _block = $_list}
     {/if}
 {/function}
-{if isset($byobBlock->variablesMap) && is_array($byobBlock->variablesMap)}
-    {foreach from = $byobBlock->variablesMap item = _block}
-        {$_block['variable_type']} {$_block['variable_name']} = {$_block['variable_value']};
-    {/foreach}
-{/if}
-{* this statement execute first*}
-{executeListStatement _list = $byobBlock->blocks}
+int main()
+{
+    {if isset($byobBlock->variablesMap) && is_array($byobBlock->variablesMap)}
+        {foreach from = $byobBlock->variablesMap item = _block}
+            {$_block['variable_type']} {$_block['variable_name']} = {$_block['variable_value']};
+        {/foreach}
+    {/if}
+    {executeListStatement _list = $byobBlock->blocks}
+}
